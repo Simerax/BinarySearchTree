@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.0">
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "../";
+</script>
+
+  <meta id="repository-name" content="">
+  <title>BinarySearchTree::Node(T) - </title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="/BinarySearchTree" data-name="binarysearchtree">
+      <a href="../BinarySearchTree.html">BinarySearchTree</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="/BinarySearchTree/Node" data-name="binarysearchtree::node(t)">
+      <a href="../BinarySearchTree/Node.html">Node</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> BinarySearchTree::Node(T)
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../BinarySearchTree/Node.html">BinarySearchTree::Node(T)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>The Node Class is used to create Binary Trees.
+Every Node holds <em>data</em>.
+Every Node can have a <em>left</em> and a <em>right</em> child.
+Non existing Childs are <strong>nil</strong></p>
+
+<pre><code>root <span class="o">=</span> <span class="t">BinarySearchTree</span><span class="t">::</span><span class="t">Node</span>(<span class="t">Int32</span>).<span class="k">new</span>(<span class="n">15</span>)
+root.insert(<span class="n">5</span>)        <span class="c"># will be the left child of root</span>
+root.insert(<span class="n">20</span>)       <span class="c"># will be the right child of root</span>
+root.insert(<span class="n">18</span>)       <span class="c"># will be the left child of &#39;20&#39;</span>
+root.find(<span class="n">20</span>)         <span class="c"># =&gt; BinarySearchTree::Node(Int32)</span>
+root.find(<span class="n">256</span>)        <span class="c"># =&gt; nil</span>
+root.delete_node(<span class="n">18</span>)  <span class="c"># =&gt; true</span>
+root.delete_node(<span class="n">256</span>) <span class="c"># =&gt; false</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28data%2Cparent%3Dnil%29-class-method" class="signature"><strong>.new</strong>(data, parent = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#data%3AT-instance-method" class="signature"><strong>#data</strong> : T</a>
+        
+          <div class="summary"><p><em>data</em> which is being hold by the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#data%3D%28data%3AT%29-instance-method" class="signature"><strong>#data=</strong>(data : T)</a>
+        
+          <div class="summary"><p><em>data</em> which is being hold by the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete_node%28val%3AT%29-instance-method" class="signature"><strong>#delete_node</strong>(val : T)</a>
+        
+          <div class="summary"><p>deletes the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code> with the given <em>val</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find%28val%3AT%29-instance-method" class="signature"><strong>#find</strong>(val : T)</a>
+        
+          <div class="summary"><p>Finds an Element in the tree by the <em>data</em> it contains</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find_smallest_child-instance-method" class="signature"><strong>#find_smallest_child</strong></a>
+        
+          <div class="summary"><p>Finds the smallest child of the given <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#insert%28val%3AT%29-instance-method" class="signature"><strong>#insert</strong>(val : T)</a>
+        
+          <div class="summary"><p>Inserts a new element into the tree</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#insert%28node%3ABinarySearchTree%3A%3ANode%28T%29%29-instance-method" class="signature"><strong>#insert</strong>(node : BinarySearchTree::Node(T))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#insert%28node%3ANil%29-instance-method" class="signature"><strong>#insert</strong>(node : Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#left%3ABinarySearchTree%3A%3ANode%28T%29%3F-instance-method" class="signature"><strong>#left</strong> : BinarySearchTree::Node(T)?</a>
+        
+          <div class="summary"><p><em>left</em> child of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#left%3D%28left%3ABinarySearchTree%3A%3ANode%28T%29%3F%29-instance-method" class="signature"><strong>#left=</strong>(left : BinarySearchTree::Node(T)?)</a>
+        
+          <div class="summary"><p><em>left</em> child of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parent%3ABinarySearchTree%3A%3ANode%28T%29%3F-instance-method" class="signature"><strong>#parent</strong> : BinarySearchTree::Node(T)?</a>
+        
+          <div class="summary"><p><em>parent</em> of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parent%3D%28parent%3ABinarySearchTree%3A%3ANode%28T%29%3F%29-instance-method" class="signature"><strong>#parent=</strong>(parent : BinarySearchTree::Node(T)?)</a>
+        
+          <div class="summary"><p><em>parent</em> of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_parent_relation-instance-method" class="signature"><strong>#remove_parent_relation</strong></a>
+        
+          <div class="summary"><p>NO NO NO | Should never be called directly! | NO NO NO</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#right%3ABinarySearchTree%3A%3ANode%28T%29%3F-instance-method" class="signature"><strong>#right</strong> : BinarySearchTree::Node(T)?</a>
+        
+          <div class="summary"><p><em>right</em> child of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#right%3D%28right%3ABinarySearchTree%3A%3ANode%28T%29%3F%29-instance-method" class="signature"><strong>#right=</strong>(right : BinarySearchTree::Node(T)?)</a>
+        
+          <div class="summary"><p><em>right</em> child of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#traverse_inorder%28%26block%3ABinarySearchTree%3A%3ANode%28T%29-%3ENil%29-instance-method" class="signature"><strong>#traverse_inorder</strong>(&block : BinarySearchTree::Node(T) -> Nil)</a>
+        
+          <div class="summary"><p>traverses the tree in 'inorder' (sorted from smallest to largest).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#traverse_postorder%28%26block%3ABinarySearchTree%3A%3ANode%28T%29-%3ENil%29-instance-method" class="signature"><strong>#traverse_postorder</strong>(&block : BinarySearchTree::Node(T) -> Nil)</a>
+        
+          <div class="summary"><p>traverses the tree in 'postorder'.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#traverse_preorder%28%26block%3ABinarySearchTree%3A%3ANode%28T%29-%3ENil%29-instance-method" class="signature"><strong>#traverse_preorder</strong>(&block : BinarySearchTree::Node(T) -> Nil)</a>
+        
+          <div class="summary"><p>traverses the tree in 'preorder'.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(data,parent=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(data, parent = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new%28data%2Cparent%3Dnil%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="data:T-instance-method">
+      <div class="signature">
+        
+        def <strong>data</strong> : T
+
+        <a class="method-permalink" href="#data%3AT-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><em>data</em> which is being hold by the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="data=(data:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>data=</strong>(data : T)
+
+        <a class="method-permalink" href="#data%3D%28data%3AT%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><em>data</em> which is being hold by the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete_node(val:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete_node</strong>(val : T)
+
+        <a class="method-permalink" href="#delete_node%28val%3AT%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>deletes the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code> with the given <em>val</em>. This method does only delete the specific <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code> and not the childs/subtree of the given <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p>
+
+<pre><code>root <span class="o">=</span> <span class="t">BinarySearchTree</span><span class="t">::</span><span class="t">Node</span>(<span class="t">Int32</span>).<span class="k">new</span>(<span class="n">5</span>)
+root.insert(<span class="n">4</span>)
+
+root.delete_node(<span class="n">4</span>) <span class="c"># =&gt; true</span>
+root.delete_node(<span class="n">4</span>) <span class="c"># =&gt; false</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find(val:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>find</strong>(val : T)
+
+        <a class="method-permalink" href="#find%28val%3AT%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Finds an Element in the tree by the <em>data</em> it contains</p>
+
+<p>In case the element is not found <strong>nil</strong> is returned</p>
+
+<pre><code>root <span class="o">=</span> <span class="t">BinarySearchTree</span><span class="t">::</span><span class="t">Node</span>(<span class="t">Int32</span>).<span class="k">new</span>(<span class="n">15</span>)
+root.insert(<span class="n">20</span>)
+root.insert(<span class="n">26</span>)
+root.insert(<span class="n">22</span>)
+root.find(<span class="n">26</span>)  <span class="c"># =&gt; BinarySearchTree::Node(Int32)</span>
+root.find(<span class="n">256</span>) <span class="c"># =&gt; nil</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find_smallest_child-instance-method">
+      <div class="signature">
+        
+        def <strong>find_smallest_child</strong>
+
+        <a class="method-permalink" href="#find_smallest_child-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Finds the smallest child of the given <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="insert(val:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>insert</strong>(val : T)
+
+        <a class="method-permalink" href="#insert%28val%3AT%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Inserts a new element into the tree</p>
+
+<p>Insertion is done by finding a <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code> which does not have a child yet and appending it to that one (by creating a new <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code>)
+The Child is being inserted in the <em>left</em> child if the data is smaller then the one of the current <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code> otherwise in the <em>right</em> one</p>
+
+<pre><code>root <span class="o">=</span> <span class="t">BinarySearchTree</span><span class="t">::</span><span class="t">Node</span>(<span class="t">Int32</span>).<span class="k">new</span>(<span class="n">15</span>)
+root.insert(<span class="n">5</span>)</code></pre></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="insert(node:BinarySearchTree::Node(T))-instance-method">
+      <div class="signature">
+        
+        def <strong>insert</strong>(node : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T))
+
+        <a class="method-permalink" href="#insert%28node%3ABinarySearchTree%3A%3ANode%28T%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="insert(node:Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>insert</strong>(node : Nil)
+
+        <a class="method-permalink" href="#insert%28node%3ANil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="left:BinarySearchTree::Node(T)?-instance-method">
+      <div class="signature">
+        
+        def <strong>left</strong> : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T)?
+
+        <a class="method-permalink" href="#left%3ABinarySearchTree%3A%3ANode%28T%29%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><em>left</em> child of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="left=(left:BinarySearchTree::Node(T)?)-instance-method">
+      <div class="signature">
+        
+        def <strong>left=</strong>(left : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T)?)
+
+        <a class="method-permalink" href="#left%3D%28left%3ABinarySearchTree%3A%3ANode%28T%29%3F%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><em>left</em> child of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parent:BinarySearchTree::Node(T)?-instance-method">
+      <div class="signature">
+        
+        def <strong>parent</strong> : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T)?
+
+        <a class="method-permalink" href="#parent%3ABinarySearchTree%3A%3ANode%28T%29%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><em>parent</em> of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parent=(parent:BinarySearchTree::Node(T)?)-instance-method">
+      <div class="signature">
+        
+        def <strong>parent=</strong>(parent : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T)?)
+
+        <a class="method-permalink" href="#parent%3D%28parent%3ABinarySearchTree%3A%3ANode%28T%29%3F%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><em>parent</em> of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_parent_relation-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_parent_relation</strong>
+
+        <a class="method-permalink" href="#remove_parent_relation-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>NO NO NO | Should never be called directly! | NO NO NO</p>
+
+<p>NO NO NO</p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="right:BinarySearchTree::Node(T)?-instance-method">
+      <div class="signature">
+        
+        def <strong>right</strong> : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T)?
+
+        <a class="method-permalink" href="#right%3ABinarySearchTree%3A%3ANode%28T%29%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><em>right</em> child of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="right=(right:BinarySearchTree::Node(T)?)-instance-method">
+      <div class="signature">
+        
+        def <strong>right=</strong>(right : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T)?)
+
+        <a class="method-permalink" href="#right%3D%28right%3ABinarySearchTree%3A%3ANode%28T%29%3F%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p><em>right</em> child of the <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="traverse_inorder(&amp;block:BinarySearchTree::Node(T)-&gt;Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>traverse_inorder</strong>(&block : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T) -> Nil)
+
+        <a class="method-permalink" href="#traverse_inorder%28%26block%3ABinarySearchTree%3A%3ANode%28T%29-%3ENil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>traverses the tree in 'inorder' (sorted from smallest to largest). <em>&block</em> is called on every <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="traverse_postorder(&amp;block:BinarySearchTree::Node(T)-&gt;Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>traverse_postorder</strong>(&block : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T) -> Nil)
+
+        <a class="method-permalink" href="#traverse_postorder%28%26block%3ABinarySearchTree%3A%3ANode%28T%29-%3ENil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>traverses the tree in 'postorder'. <em>&block</em> is called on every <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="traverse_preorder(&amp;block:BinarySearchTree::Node(T)-&gt;Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>traverse_preorder</strong>(&block : <a href="../BinarySearchTree/Node.html">BinarySearchTree::Node</a>(T) -> Nil)
+
+        <a class="method-permalink" href="#traverse_preorder%28%26block%3ABinarySearchTree%3A%3ANode%28T%29-%3ENil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>traverses the tree in 'preorder'. <em>&block</em> is called on every <code><a href="../BinarySearchTree/Node.html">Node</a>(T)</code></p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
