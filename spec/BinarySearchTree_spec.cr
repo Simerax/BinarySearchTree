@@ -2,6 +2,20 @@ require "./spec_helper"
 
 describe BinarySearchTree do
   describe "BinarySearchTree::Node(Int32)" do
+    describe "#balance" do
+      it "rebalances a tree" do
+        root = createInt32DummyTree([1, 2, 3, 4, 5, 6, 9])
+        root.balance
+
+        preordered = Array(Int32).new
+        root.traverse_preorder do |e|
+          preordered << e.data
+        end
+
+        preordered.should eq [4, 2, 1, 3, 6, 5, 9]
+      end
+    end
+
     describe "#insert" do
       it "correctly inserts a new element" do
         root = createInt32Node(5)

@@ -1,6 +1,6 @@
 # TODO: Write documentation for `BinarySearchTree`
 module BinarySearchTree
-  VERSION = "0.1.0"
+  VERSION = "0.1.6"
 
   # The Node Class is used to create Binary Trees.
   # Every Node holds *data*.
@@ -33,6 +33,42 @@ module BinarySearchTree
     def initialize(@data, @parent = nil)
       left = nil
       right = nil
+    end
+
+    # Balances the tree
+    #
+    # This Process is time and memory consuming and should not be done often
+    #
+    def balance
+      data = Array(T).new
+
+      self.traverse_inorder do |e|
+        data << e.data
+      end
+      if data.size > 0
+        balanced = Array(T).new
+        middle_value(data, balanced)
+
+        self.data = balanced.shift
+        self.left = nil
+        self.right = nil
+        GC.collect
+
+        balanced.each do |value|
+          self.insert(value)
+        end
+      end
+    end
+
+    private def middle_value(input : Array(T), output : Array(T))
+      if input.size == 1
+        output << input[0]
+      else
+        middle_index = (input.size / 2).as(Int32)
+        output << input[middle_index]
+        middle_value(input[0...middle_index], output)
+        middle_value(input[middle_index + 1..input.size - 1], output)
+      end
     end
 
     # Inserts a new element into the tree
@@ -299,7 +335,3 @@ module BinarySearchTree
     end
   end
 end
-
-root = BinarySearchTree::Node(Int32).new(5)
-root.insert(3)
-puts root.find(3)
