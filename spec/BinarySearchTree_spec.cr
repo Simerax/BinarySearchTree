@@ -6,15 +6,73 @@ describe BinarySearchTree do
       it "correctly inserts a new element" do
         root = createInt32Node(5)
         root.insert(6).should be_true
+
+        ordered(root).should eq [5, 6]
       end
       it "correctly inserts multiple elements in a row" do
         root = createInt32Node(5)
         root.insert(6).should be_true
         root.insert(4).should be_true
+
+        ordered(root).should eq [4, 5, 6]
       end
       it "refuses redundant Nodes" do
         root = createInt32Node(5)
         root.insert(5).should be_false
+
+        ordered(root).should eq [5]
+      end
+
+      it "inserts the same way as insert_recursive" do
+        root_iterative = createInt32Node(5)
+        root_iterative.insert(4)
+        root_iterative.insert(6)
+        root_iterative.insert(9)
+        root_iterative.insert(2)
+        root_iterative.insert(3)
+        root_iterative.insert(1)
+
+        iterative_preorder = Array(Int32).new
+        root_iterative.traverse_preorder do |e|
+          iterative_preorder << e.data
+        end
+
+        root_recursive = createInt32Node(5)
+        root_recursive.insert_recursive(4)
+        root_recursive.insert_recursive(6)
+        root_recursive.insert_recursive(9)
+        root_recursive.insert_recursive(2)
+        root_recursive.insert_recursive(3)
+        root_recursive.insert_recursive(1)
+
+        recursive_preorder = Array(Int32).new
+        root_recursive.traverse_preorder do |e|
+          recursive_preorder << e.data
+        end
+
+        iterative_preorder.should eq recursive_preorder
+      end
+    end
+
+    describe "#insert_recursive" do
+      it "correctly insert_recursives a new element" do
+        root = createInt32Node(5)
+        root.insert_recursive(6).should be_true
+
+        ordered(root).should eq [5, 6]
+      end
+      it "correctly insert_recursives multiple elements in a row" do
+        root = createInt32Node(5)
+        root.insert_recursive(6).should be_true
+        root.insert_recursive(4).should be_true
+
+        ordered(root).should eq [4, 5, 6]
+      end
+      it "refuses redundant Nodes" do
+        root = createInt32Node(5)
+        root.insert_recursive(5).should be_false
+
+        ordered(root).should eq [5]
       end
     end
 
@@ -27,6 +85,18 @@ describe BinarySearchTree do
       it "returns nil if element does not exist" do
         root = createInt32DummyTree([5, 4, 6, 9, 2, 3, 1])
         root.find(32).should be_nil
+      end
+    end
+
+    describe "#find_recursive" do
+      it "find_recursives an existing element" do
+        root = createInt32DummyTree([5, 4, 6, 9, 2, 3, 1])
+        root.find_recursive(3).should be_a(BinarySearchTree::Node(Int32))
+        root.find_recursive(9).should be_a(BinarySearchTree::Node(Int32))
+      end
+      it "returns nil if element does not exist" do
+        root = createInt32DummyTree([5, 4, 6, 9, 2, 3, 1])
+        root.find_recursive(32).should be_nil
       end
     end
 

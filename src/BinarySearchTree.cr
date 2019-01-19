@@ -46,28 +46,42 @@ module BinarySearchTree
     # root.insert(5)
     # ```
     def insert(val : T)
-      if self.data == val
-        return false
-      else
-        if val <= self.data
-          if left = @left
-            return left.insert(val)
-          else
-            @left = Node(T).new(val, self)
-            return true
-          end
-        else
-          if right = @right
-            return right.insert(val)
-          else
-            @right = Node(T).new(val, self)
-            return true
-          end
-        end
-      end
+      insert(Node(T).new(val))
     end
 
     def insert(node : Node(T))
+      if root = self
+        while root
+          if root.data == node.data
+            return false
+          elsif node.data < root.data
+            if left_child = root.left
+              root = left_child
+            else
+              root.left = node
+              node.parent = root
+              return true
+            end
+          elsif node.data > root.data
+            if right_child = root.right
+              root = right_child
+            else
+              root.right = node
+              node.parent = root
+              return true
+            end
+          end
+        end
+      end
+      return false
+    end
+
+    # Recursive Version of the `insert` method
+    def insert_recursive(val : T)
+      insert_recursive(Node(T).new(val))
+    end
+
+    def insert_recursive(node : Node(T))
       if self == node || self.data == node.data
         return false
       else
@@ -104,6 +118,31 @@ module BinarySearchTree
     # root.find(256) # => nil
     # ```
     def find(val : T)
+      if root = self
+        while root
+          if root.data == val
+            return root
+          elsif val < root.data
+            if left_child = root.left
+              root = left_child
+            else
+              return nil
+            end
+          elsif val > root.data
+            if right_child = root.right
+              root = right_child
+            else
+              return nil
+            end
+          end
+        end
+      else
+        return nil
+      end
+    end
+
+    # Recursive version of the `find` method
+    def find_recursive(val : T)
       if self.data == val
         return self
       else
@@ -260,3 +299,7 @@ module BinarySearchTree
     end
   end
 end
+
+root = BinarySearchTree::Node(Int32).new(5)
+root.insert(3)
+puts root.find(3)

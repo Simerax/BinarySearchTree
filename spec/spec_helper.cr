@@ -21,3 +21,16 @@ end
 def createInt32PredefinedDummyTree
   createInt32DummyTree([5, 4, 6, 9, 2, 3, 1])
 end
+
+# helper to list every nodes data in ascending order
+#
+# root = createInt32DummyTree([5,4,6,8,9])
+# ordered(root).should eq [4,5,6,8,9]
+def ordered(root : BinarySearchTree::Node(Int32))
+  found = Array(Int32).new
+  root.traverse_inorder do |e|
+    found << e.data
+  end
+
+  found
+end
