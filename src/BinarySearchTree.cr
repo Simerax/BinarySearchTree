@@ -67,10 +67,6 @@ module BinarySearchTree
       end
     end
 
-    def insert(node : Nil)
-      raise "Cannot insert nil Value!"
-    end
-
     def insert(node : Node(T))
       if self == node || self.data == node.data
         return false
@@ -169,19 +165,27 @@ module BinarySearchTree
         elsif ntd.left != nil && ntd.right == nil
           ntd.remove_parent_relation
           if par = ntd.parent
-            par.insert(ntd.left)
-            ntd = nil
-            GC.collect
-            return true
+            if left_child = ntd.left
+              par.insert(left_child)
+              ntd = nil
+              GC.collect
+              return true
+            else
+              return false
+            end
           end
           # right child but no left child
         elsif ntd.left == nil && ntd.right != nil
           ntd.remove_parent_relation
           if par = ntd.parent
-            par.insert(ntd.right)
-            ntd = nil
-            GC.collect
-            return true
+            if right_child = ntd.right
+              par.insert(right_child)
+              ntd = nil
+              GC.collect
+              return true
+            else
+              return false
+            end
           end
           # left and right child
         elsif ntd.left != nil && ntd.right != nil
