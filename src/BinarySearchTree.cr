@@ -1,6 +1,6 @@
 # TODO: Write documentation for `BinarySearchTree`
 module BinarySearchTree
-  VERSION = "0.1.9"
+  VERSION = "0.1.10"
 
   # The Node Class is used to create Binary Trees.
   # Every Node holds *data*.
@@ -63,9 +63,11 @@ module BinarySearchTree
         node.insert(input[0])
       else
         middle = middle_index(input)
-        node.insert(input[middle])
-        insert_middle_value(input[0...middle], node)
-        insert_middle_value(input[middle + 1..input.size - 1], node)
+        if input.size > middle
+          node.insert(input[middle])
+          insert_middle_value(input[0...middle], node)
+          insert_middle_value(input[middle + 1..input.size - 1], node)
+        end
       end
     end
 

@@ -26,6 +26,32 @@ describe BinarySearchTree do
 
         preordered.should eq [5]
       end
+      it "rebalances a tree with 2 elements" do
+        root = BinarySearchTree::Node(Int32).new(5)
+        root.insert(26)
+        root.balance
+
+        preordered = Array(Int32).new
+        root.traverse_preorder do |e|
+          preordered << e.data
+        end
+
+        preordered.should eq [26, 5]
+      end
+
+      it "rebalances a tree with 3 elements" do
+        root = BinarySearchTree::Node(Int32).new(5)
+        root.insert(26)
+        root.insert(3)
+        root.balance
+
+        preordered = Array(Int32).new
+        root.traverse_preorder do |e|
+          preordered << e.data
+        end
+
+        preordered.should eq [5, 3, 26]
+      end
     end
 
     describe "#insert" do
