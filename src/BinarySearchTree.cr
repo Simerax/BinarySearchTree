@@ -39,6 +39,7 @@ module BinarySearchTree
     #
     # This Process is time and memory consuming and should not be done often
     #
+
     def balance
       data = Array(T).new
 
@@ -46,29 +47,26 @@ module BinarySearchTree
         data << e.data
       end
       if data.size > 0
-        balanced = Array(T).new
-        middle_value(data, balanced)
-
-        self.data = balanced.shift
+        self.data = data[middle_index(data)]
         self.left = nil
         self.right = nil
-        GC.collect
-
-        balanced.each do |value|
-          self.insert(value)
-        end
+        middle_value(data, self)
       end
     end
 
-    private def middle_value(input : Array(T), output : Array(T))
+    private def middle_value(input : Array(T), node : Node(T))
       if input.size == 1
-        output << input[0]
+        node.insert(input[0])
       else
-        middle_index = (input.size / 2).as(Int32)
-        output << input[middle_index]
-        middle_value(input[0...middle_index], output)
-        middle_value(input[middle_index + 1..input.size - 1], output)
+        middle = middle_index(input)
+        node.insert(input[middle])
+        middle_value(input[0...middle], node)
+        middle_value(input[middle + 1..input.size - 1], node)
       end
+    end
+
+    private def middle_index(arr : Array(T))
+      (arr.size / 2).as(Int32)
     end
 
     # Inserts a new element into the tree

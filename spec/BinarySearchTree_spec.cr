@@ -14,6 +14,18 @@ describe BinarySearchTree do
 
         preordered.should eq [4, 2, 1, 3, 6, 5, 9]
       end
+
+      it "rebalances a empty tree" do
+        root = BinarySearchTree::Node(Int32).new(5)
+        root.balance
+
+        preordered = Array(Int32).new
+        root.traverse_preorder do |e|
+          preordered << e.data
+        end
+
+        preordered.should eq [5]
+      end
     end
 
     describe "#insert" do
