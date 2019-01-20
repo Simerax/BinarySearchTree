@@ -102,7 +102,7 @@ root.delete_node(<span class="n">256</span>) <span class="c"># =&gt; false</span
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L20" target="_blank">
+      <a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L20" target="_blank">
         BinarySearchTree.cr
       </a>
     
@@ -317,7 +317,7 @@ root.delete_node(<span class="n">256</span>) <span class="c"># =&gt; false</span
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L33" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L33" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -339,12 +339,15 @@ root.delete_node(<span class="n">256</span>) <span class="c"># =&gt; false</span
       
         <div class="doc"><p>Balances the tree</p>
 
-<p>This Process is time and memory consuming and should not be done often</p></div>
+<p>This Process is time and memory consuming and should not be done often
+Rebalancing is done by first copying the whole tree into a sorted array.
+This array is then constantly split in half always inserting the value in the middle of the split array
+This means that at the end of rebalancing, right before cleanup, the memory usage is the size of the tree * 2</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L45" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -362,7 +365,7 @@ root.delete_node(<span class="n">256</span>) <span class="c"># =&gt; false</span
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -380,7 +383,7 @@ root.delete_node(<span class="n">256</span>) <span class="c"># =&gt; false</span
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -404,7 +407,7 @@ root.delete_node(<span class="n">4</span>) <span class="c"># =&gt; false</span><
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L230" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L233" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -431,7 +434,7 @@ root.find(<span class="n">256</span>) <span class="c"># =&gt; nil</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L156" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L159" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -449,7 +452,7 @@ root.find(<span class="n">256</span>) <span class="c"># =&gt; nil</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L181" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L184" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -467,7 +470,7 @@ root.find(<span class="n">256</span>) <span class="c"># =&gt; nil</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L296" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L299" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -483,7 +486,7 @@ root.find(<span class="n">256</span>) <span class="c"># =&gt; nil</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L88" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L91" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -507,7 +510,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L84" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L87" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -523,7 +526,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L120" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L123" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -541,7 +544,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L116" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L119" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -559,7 +562,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -577,7 +580,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -595,7 +598,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L28" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -613,7 +616,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L28" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -633,7 +636,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L204" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L207" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -651,7 +654,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L25" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -669,7 +672,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L25" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -687,7 +690,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L316" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L319" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -705,7 +708,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L327" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L330" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -723,7 +726,7 @@ root.insert(<span class="n">5</span>)</code></pre></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/Simerax/BinarySearchTree/blob/5c1db2a3fb385e3d91f67c44b56f4654c98a0908/src/BinarySearchTree.cr#L305" target="_blank">View source</a>]
+          [<a href="https://github.com/Simerax/BinarySearchTree/blob/0de8151172baa1fac8686eff74ef3169983b41a9/src/BinarySearchTree.cr#L308" target="_blank">View source</a>]
         
       </div>
     </div>
