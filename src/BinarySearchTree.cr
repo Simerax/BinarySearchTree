@@ -1,6 +1,6 @@
 # TODO: Write documentation for `BinarySearchTree`
 module BinarySearchTree
-  VERSION = "0.1.8"
+  VERSION = "0.1.9"
 
   # The Node Class is used to create Binary Trees.
   # Every Node holds *data*.
@@ -38,8 +38,10 @@ module BinarySearchTree
     # Balances the tree
     #
     # This Process is time and memory consuming and should not be done often
+    # Rebalancing is done by first copying the whole tree into a sorted array.
+    # This array is then constantly split in half always inserting the value in the middle of the split array
+    # This means that at the end of rebalancing, right before cleanup, the memory usage is the size of the tree * 2
     #
-
     def balance
       data = Array(T).new
 
@@ -51,21 +53,23 @@ module BinarySearchTree
         self.left = nil
         self.right = nil
         GC.collect
-        middle_value(data, self)
+        insert_middle_value(data, self)
       end
     end
 
-    private def middle_value(input : Array(T), node : Node(T))
+    # Recursively finds the value in the middle of the array and inserts that value into the given *node*
+    private def insert_middle_value(input : Array(T), node : Node(T))
       if input.size == 1
         node.insert(input[0])
       else
         middle = middle_index(input)
         node.insert(input[middle])
-        middle_value(input[0...middle], node)
-        middle_value(input[middle + 1..input.size - 1], node)
+        insert_middle_value(input[0...middle], node)
+        insert_middle_value(input[middle + 1..input.size - 1], node)
       end
     end
 
+    # Returns the index which is most closely to the middle of the given array
     private def middle_index(arr : Array(T))
       (arr.size / 2).as(Int32)
     end
