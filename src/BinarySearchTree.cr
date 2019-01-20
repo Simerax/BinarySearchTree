@@ -1,6 +1,6 @@
 # TODO: Write documentation for `BinarySearchTree`
 module BinarySearchTree
-  VERSION = "0.1.6"
+  VERSION = "0.1.8"
 
   # The Node Class is used to create Binary Trees.
   # Every Node holds *data*.
@@ -50,6 +50,7 @@ module BinarySearchTree
         self.data = data[middle_index(data)]
         self.left = nil
         self.right = nil
+        GC.collect
         middle_value(data, self)
       end
     end
