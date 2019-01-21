@@ -23,6 +23,17 @@ describe BinarySearchTree do
     end
 
     describe "#delete_node_and_childs" do
+      it "does not delete itself" do
+        root = BinarySearchTree::Node(Int32).new(5)
+        root.delete_node_and_childs(5).should be_false
+        inorder = Array(Int32).new
+        root.traverse_inorder do |e|
+          inorder << e.data
+        end
+
+        inorder.should eq [5]
+      end
+
       it "deletes the given node and its childs" do
         root = createInt32DummyTree([5, 4, 6, 9, 2, 3, 1])
         root.delete_node_and_childs(4).should be_true
@@ -304,7 +315,7 @@ describe BinarySearchTree do
 
         found.should eq [5, 4, 3, 1, 6, 9]
       end
-      it "deletes the root node" do
+      it "deletes the root node if it has childs" do
         values = [5, 4, 6, 9, 2, 3, 1]
         found = Array(Int32).new
         root = createInt32DummyTree(values)
@@ -317,6 +328,18 @@ describe BinarySearchTree do
         end
 
         found.should eq [6, 4, 2, 1, 3, 9]
+      end
+
+      it "does not delete the root node if it has no childs" do
+        root = BinarySearchTree::Node(Int32).new(5)
+        root.delete_node(5).should be_false
+
+        found = Array(Int32).new
+        root.traverse_preorder do |e|
+          found << e.data
+        end
+
+        found.should eq [5]
       end
     end
   end

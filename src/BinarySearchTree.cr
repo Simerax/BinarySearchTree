@@ -1,6 +1,6 @@
 # TODO: Write documentation for `BinarySearchTree`
 module BinarySearchTree
-  VERSION = "0.1.12"
+  VERSION = "0.1.13"
 
   # The Node Class is used to create Binary Trees.
   # Every Node holds *data*.
@@ -263,6 +263,11 @@ module BinarySearchTree
     # ```
     #
     def delete_node(val : T)
+      # root node should not be able to delete itself if there is no child to take its place in the tree
+      if self.data == val && self.left == nil && self.right == nil
+        return false
+      end
+
       # ntd = note to delete
       if ntd = self.find(val)
         # no child nodes
