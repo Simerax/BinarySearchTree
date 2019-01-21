@@ -1,6 +1,6 @@
 # TODO: Write documentation for `BinarySearchTree`
 module BinarySearchTree
-  VERSION = "0.1.10"
+  VERSION = "0.1.11"
 
   # The Node Class is used to create Binary Trees.
   # Every Node holds *data*.
@@ -293,6 +293,35 @@ module BinarySearchTree
             return false
           end
         end
+      end
+      return false
+    end
+
+    # deletes a node and its childs/subtree
+    #
+    # ```
+    # root = BinarySearchTree::Node(Int32).new(5)
+    # root.insert(4)
+    # root.insert(3)
+    # root.delete_node_and_childs(4)  # => true
+    # root.delete_node_and_childs(20) # => false
+    # ```
+    def delete_node_and_childs(val : T)
+      if n = self.find(val)
+        return delete_node_and_childs(n)
+      else
+        return false
+      end
+    end
+
+    def delete_node_and_childs(n : Node(T))
+      if n == self
+        return false
+      else
+        n.remove_parent_relation
+        n = nil
+        GC.collect
+        return true
       end
       return false
     end

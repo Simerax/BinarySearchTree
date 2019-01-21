@@ -2,6 +2,42 @@ require "./spec_helper"
 
 describe BinarySearchTree do
   describe "BinarySearchTree::Node(Int32)" do
+    describe "#delete_node_and_childs" do
+      it "deletes the given node and its childs" do
+        root = createInt32DummyTree([5, 4, 6, 9, 2, 3, 1])
+        root.delete_node_and_childs(4).should be_true
+        inorder = Array(Int32).new
+        root.traverse_inorder do |e|
+          inorder << e.data
+        end
+
+        inorder.should eq [5, 6, 9]
+      end
+
+      it "does not delete non existing values" do
+        root = createInt32DummyTree([5, 4, 6, 9, 2, 3, 1])
+        root.delete_node_and_childs(256).should be_false
+        inorder = Array(Int32).new
+        root.traverse_inorder do |e|
+          inorder << e.data
+        end
+
+        inorder.should eq [1, 2, 3, 4, 5, 6, 9]
+      end
+
+      it "does not delete itself" do
+        root = createInt32DummyTree([5, 4, 6, 9, 2, 3, 1])
+        root.delete_node_and_childs(5).should be_false
+
+        inorder = Array(Int32).new
+        root.traverse_inorder do |e|
+          inorder << e.data
+        end
+
+        inorder.should eq [1, 2, 3, 4, 5, 6, 9]
+      end
+    end
+
     describe "#balance" do
       it "rebalances a tree" do
         root = createInt32DummyTree([1, 2, 3, 4, 5, 6, 9])
