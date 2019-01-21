@@ -1,6 +1,6 @@
 # TODO: Write documentation for `BinarySearchTree`
 module BinarySearchTree
-  VERSION = "0.1.11"
+  VERSION = "0.1.12"
 
   # The Node Class is used to create Binary Trees.
   # Every Node holds *data*.
@@ -115,6 +115,36 @@ module BinarySearchTree
         end
       end
       return false
+    end
+
+    # Inserts multiple values at once
+    #
+    # It uses the `insert` method under the hood. Errors while inserting are not reported.
+    #
+    # ```
+    # root = BinarySearchTree::Node(Int32).new(5)
+    # root.bulk_insert([5, 4, 3, 2])
+    # ```
+    def bulk_insert(values : Array(T))
+      values.each do |v|
+        self.insert(v)
+      end
+    end
+
+    # Inserts multiple values at once and calls block after every insert.
+    #
+    # ```
+    # root = BinarySearchTree::Node(Int32).new(5)
+    # root.bulk_insert([4, 3, 2]) do |value, success|
+    #   unless success
+    #     puts "value #{value} was not inserted!"
+    #   end
+    # end
+    # ```
+    def bulk_insert(values : Array(T), &block : (T, Bool) -> Nil)
+      values.each do |v|
+        block.call(v, self.insert(v))
+      end
     end
 
     # Recursive Version of the `insert` method

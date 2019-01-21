@@ -2,6 +2,26 @@ require "./spec_helper"
 
 describe BinarySearchTree do
   describe "BinarySearchTree::Node(Int32)" do
+    describe "#bulk_insert" do
+      it "inserts multiple elements in one call" do
+        root = BinarySearchTree::Node(Int32).new(5)
+        root.bulk_insert([4, 6, 9, 2, 3, 1])
+
+        preorder = Array(Int32).new
+        root.traverse_preorder do |e|
+          preorder << e.data
+        end
+        preorder.should eq [5, 4, 2, 1, 3, 6, 9]
+      end
+
+      it "calls the block on every element" do
+        root = BinarySearchTree::Node(Int32).new(5)
+        root.bulk_insert([4, 6, 9, 2, 3, 1]) do |value, success|
+          success.should be_true
+        end
+      end
+    end
+
     describe "#delete_node_and_childs" do
       it "deletes the given node and its childs" do
         root = createInt32DummyTree([5, 4, 6, 9, 2, 3, 1])
