@@ -2,6 +2,27 @@ require "./spec_helper"
 
 describe BinarySearchTree do
   describe "BinarySearchTree::Node(Int32)" do
+    describe "#clone" do
+      it "clones the tree" do
+        root = BinarySearchTree::Node(Int32).new(5)
+        root.bulk_insert([4, 6, 9, 2, 3, 1])
+
+        clone = root.clone
+
+        root_preorder = Array(Int32).new
+        root.traverse_preorder do |n|
+          root_preorder << n.data
+        end
+
+        clone_preorder = Array(Int32).new
+        clone.traverse_preorder do |n|
+          clone_preorder << n.data
+        end
+
+        root_preorder.should eq clone_preorder
+      end
+    end
+
     describe "#bulk_insert" do
       it "inserts multiple elements in one call" do
         root = BinarySearchTree::Node(Int32).new(5)

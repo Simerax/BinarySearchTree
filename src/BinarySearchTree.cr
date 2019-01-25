@@ -1,6 +1,6 @@
 # TODO: Write documentation for `BinarySearchTree`
 module BinarySearchTree
-  VERSION = "0.1.13"
+  VERSION = "0.1.14"
 
   # The Node Class is used to create Binary Trees.
   # Every Node holds *data*.
@@ -33,6 +33,19 @@ module BinarySearchTree
     def initialize(@data, @parent = nil)
       left = nil
       right = nil
+    end
+
+    # Clones the tree and returns the root node of the cloned tree
+    #
+    # ```
+    # clone = root.clone
+    # ```
+    def clone
+      clone = Node(T).new(self.data)
+      self.traverse_preorder do |n|
+        clone.insert(n.data)
+      end
+      clone
     end
 
     # Balances the tree
